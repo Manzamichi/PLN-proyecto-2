@@ -65,4 +65,3 @@ def leer_nodos(ruta: Path) -> dict[str, str]:
     if not indice:
         raise ValueError("La lista no contiene nodos activos.")
     return indice
-

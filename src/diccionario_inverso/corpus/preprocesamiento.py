@@ -98,4 +98,3 @@ class Preprocesador:
         secuencia = [normalizar(t.lemma_ or t.text) for t in doc if not t.is_space]
         variantes = [palabras(concepto), list(self._lemas_objetivo(concepto))]
         return any(contiene_secuencia(secuencia, v) for v in variantes)
-

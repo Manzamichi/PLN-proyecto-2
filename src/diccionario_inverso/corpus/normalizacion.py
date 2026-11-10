@@ -23,4 +23,3 @@ def contiene_secuencia(secuencia: list[str], buscada: list[str]) -> bool:
 def contiene_objetivo(definicion: str, concepto: str) -> bool:
     # No confundir sol con soldado; espacios y guiones bajos son equivalentes.
     return contiene_secuencia(palabras(definicion), palabras(concepto))
-

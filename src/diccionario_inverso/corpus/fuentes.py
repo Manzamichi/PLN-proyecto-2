@@ -111,4 +111,3 @@ def extraer(origen: Path, destino: Path, max_por_concepto: int = 3) -> dict:
     }
     escribir_json(destino.with_suffix(".json"), manifiesto)
     return manifiesto
-

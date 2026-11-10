@@ -85,4 +85,3 @@ def preparar(origen: Path, ruta_nodos: Path, salida: Path, modelo: str = "es_cor
             archivo.write(json.dumps(fila, ensure_ascii=False) + "\n")
     escribir_json(salida / "cobertura.json", resumen)
     return resumen
-
