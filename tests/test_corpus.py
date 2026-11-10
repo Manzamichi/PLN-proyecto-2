@@ -7,11 +7,11 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from corpus.archivos import leer_nodos, escribir_csv
-from corpus.fuentes import extraer
-from corpus.normalizacion import contiene_objetivo, normalizar
-from corpus.preparacion import preparar
-from corpus.preprocesamiento import Preprocesador
+from diccionario_inverso.corpus.archivos import leer_nodos, escribir_csv
+from diccionario_inverso.corpus.fuentes import extraer
+from diccionario_inverso.corpus.normalizacion import contiene_objetivo, normalizar
+from diccionario_inverso.corpus.preparacion import preparar
+from diccionario_inverso.corpus.preprocesamiento import Preprocesador
 
 TEMP_PRUEBAS = Path(__file__).resolve().parents[1] / "tmp" / "tests"
 TEMP_PRUEBAS.mkdir(parents=True, exist_ok=True)

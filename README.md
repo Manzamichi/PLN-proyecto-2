@@ -37,7 +37,7 @@ y caracterización en `reports/`. Los IDs multipalabra del grafo usan espacios.
 Con `nodos.txt` del grafo final (generado localmente o compartido por el equipo):
 
 ```powershell
-.venv/Scripts/python.exe -m corpus preparar --nodos data/processed/nodos.txt --salida data/processed/corpus
+.venv/Scripts/python.exe -m diccionario_inverso.corpus preparar --nodos data/processed/nodos.txt --salida data/processed/corpus
 ```
 
 También se acepta CSV `nodo,grado` (se excluye grado cero) o JSON con una lista
@@ -50,8 +50,8 @@ permanecen en el corpus.
 
 ```python
 from pathlib import Path
-from corpus.archivos import leer_nodos
-from corpus.preprocesamiento import Preprocesador
+from diccionario_inverso.corpus.archivos import leer_nodos
+from diccionario_inverso.corpus.preprocesamiento import Preprocesador
 
 pre = Preprocesador(leer_nodos(Path("data/processed/nodos.txt")))
 candidatos = modelo.rankear(pre.lemas_para_modelo(definicion))
@@ -65,8 +65,8 @@ El campo `concepto` se utiliza exclusivamente para evaluar.
 ## Reconstrucción del banco y pruebas
 
 ```powershell
-.venv/Scripts/python.exe -m corpus descargar
-.venv/Scripts/python.exe -m corpus extraer
+.venv/Scripts/python.exe -m diccionario_inverso.corpus descargar
+.venv/Scripts/python.exe -m diccionario_inverso.corpus extraer
 .venv/Scripts/python.exe -m pytest --basetemp=tmp/pytest
 ```
 

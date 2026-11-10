@@ -1,0 +1,61 @@
+{
+  "nodos": 13451,
+  "aristas_dirigidas": 833440,
+  "aristas_no_dirigidas": 761590,
+  "densidad": 0.0046067801097692046,
+  "reciprocidad": 0.17241793050489537,
+  "grado_medio_salida": 61.96119247639581,
+  "grado_medio_entrada": 61.96119247639581,
+  "grado_medio_no_dirigido": 113.23916437439595,
+  "grado_salida": {
+    "media": 61.96119247639581,
+    "mediana": 61.0,
+    "desv_est": 12.972161974070342,
+    "min": 13.0,
+    "max": 122.0
+  },
+  "grado_entrada": {
+    "media": 61.96119247639581,
+    "mediana": 28.0,
+    "desv_est": 114.32883983387012,
+    "min": 1.0,
+    "max": 2525.0
+  },
+  "componentes_debiles": 1,
+  "mayor_componente_debil": 13451,
+  "componentes_fuertes": 1,
+  "mayor_componente_fuerte": 13451,
+  "nodos_aislados": 0,
+  "clustering_promedio": 0.12519794952820115,
+  "clustering_metodo": "exacto",
+  "pesos": {
+    "p": {
+      "media": 0.014090692026417231,
+      "mediana": 0.006756756756756757,
+      "desv_est": 0.02348444514153532,
+      "min": 0.00273224043715847,
+      "max": 0.460431654676259
+    },
+    "costo_fa": {
+      "media": 98.59093079735827,
+      "mediana": 99.32432432432432,
+      "desv_est": 2.3484445141535324,
+      "min": 53.956834532374096,
+      "max": 99.72677595628416
+    },
+    "costo_logp": {
+      "media": 4.6667747796876204,
+      "mediana": 4.997212273764115,
+      "desv_est": 0.7071523239053704,
+      "min": 0.7755908497710199,
+      "max": 5.902633333401366
+    }
+  },
+  "parametros_construccion": {
+    "fuente": "SWOW-RP",
+    "min_frecuencia": 1,
+    "solo_cues": true,
+    "filtro": "mayor_componente_fuerte",
+    "archivo_fuente": "SWOWRP.R70.20220426.csv"
+  }
+}

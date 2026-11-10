@@ -12,6 +12,9 @@ dependencies = [
     "pandas>=2.1",
     "numpy>=1.26",
     "matplotlib>=3.8",
+    "spacy==3.8.11",
+    "click==8.3.1",
+    "es-core-news-md @ https://github.com/explosion/spacy-models/releases/download/es_core_news_md-3.8.0/es_core_news_md-3.8.0-py3-none-any.whl#sha256=478b8bb3f3e8eb149192f7d80e7cd64f990b7e9bccbc5329df41a57e86326be2",
 ]
 
 [project.optional-dependencies]

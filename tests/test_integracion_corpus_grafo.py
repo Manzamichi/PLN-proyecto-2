@@ -1,13 +1,24 @@
 """Contrato entre la exportación del grafo y el preprocesamiento del corpus."""
 
 import json
+import subprocess
+import sys
 
 import pandas as pd
 
-from corpus.archivos import escribir_csv, leer_nodos
-from corpus.preparacion import preparar
+from diccionario_inverso.corpus.archivos import escribir_csv, leer_nodos
+from diccionario_inverso.corpus.preparacion import preparar
 from diccionario_inverso.grafo import construir_grafo, exportar_nodos, mayor_componente_fuerte
 from diccionario_inverso.swow import a_formato_largo, calcular_fuerzas
+
+
+def test_cli_corpus_instalado_fuera_de_la_raiz(tmp_path):
+    resultado = subprocess.run(
+        [sys.executable, "-m", "diccionario_inverso.corpus", "--help"],
+        cwd=tmp_path, capture_output=True, text=True,
+    )
+    assert resultado.returncode == 0, resultado.stderr
+    assert "preparar" in resultado.stdout
 
 
 def test_corpus_con_nodos_exportados_y_multipalabras(tmp_path):
