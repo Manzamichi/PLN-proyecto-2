@@ -1,0 +1,171 @@
+{
+  "archivo_respuestas": "SWOWRP.R70.20220426.csv",
+  "archivo_oficial": "strength.SWOWRP.R123.20220426.csv",
+  "pares_propios": 1056083,
+  "pares_oficiales_sin_bucles": 1056101,
+  "pares_oficiales_duplicados_tras_normalizar": 2558,
+  "pares_comunes": 1056083,
+  "solo_propios": 0,
+  "solo_oficiales": 18,
+  "frecuencia_identica_pct": 100.0,
+  "n_identico_pct": 99.81099970362179,
+  "p_identica_pct": 99.81099970362179,
+  "p_dif_abs_max": 0.1655100764888579,
+  "p_dif_abs_media": 4.837248483322077e-06,
+  "p_correlacion_pearson": 0.9997744242156575,
+  "ejemplos_discrepancia": [
+    {
+      "cue": "abuelo",
+      "response": "abrazo",
+      "frecuencia": 1.0,
+      "frecuencia_oficial": 1,
+      "total_cue": 175.0,
+      "n_oficial": 176,
+      "p": 0.005714285714285714,
+      "p_oficial": 0.00568181818181818
+    },
+    {
+      "cue": "abuelo",
+      "response": "abu",
+      "frecuencia": 1.0,
+      "frecuencia_oficial": 1,
+      "total_cue": 175.0,
+      "n_oficial": 176,
+      "p": 0.005714285714285714,
+      "p_oficial": 0.00568181818181818
+    },
+    {
+      "cue": "abuelo",
+      "response": "abuela",
+      "frecuencia": 7.0,
+      "frecuencia_oficial": 7,
+      "total_cue": 175.0,
+      "n_oficial": 176,
+      "p": 0.04,
+      "p_oficial": 0.0397727272727273
+    },
+    {
+      "cue": "abuelo",
+      "response": "afecto",
+      "frecuencia": 1.0,
+      "frecuencia_oficial": 1,
+      "total_cue": 175.0,
+      "n_oficial": 176,
+      "p": 0.005714285714285714,
+      "p_oficial": 0.00568181818181818
+    },
+    {
+      "cue": "abuelo",
+      "response": "alegría",
+      "frecuencia": 1.0,
+      "frecuencia_oficial": 1,
+      "total_cue": 175.0,
+      "n_oficial": 176,
+      "p": 0.005714285714285714,
+      "p_oficial": 0.00568181818181818
+    },
+    {
+      "cue": "abuelo",
+      "response": "alfredo",
+      "frecuencia": 1.0,
+      "frecuencia_oficial": 1,
+      "total_cue": 175.0,
+      "n_oficial": 176,
+      "p": 0.005714285714285714,
+      "p_oficial": 0.00568181818181818
+    },
+    {
+      "cue": "abuelo",
+      "response": "amigo",
+      "frecuencia": 1.0,
+      "frecuencia_oficial": 1,
+      "total_cue": 175.0,
+      "n_oficial": 176,
+      "p": 0.005714285714285714,
+      "p_oficial": 0.00568181818181818
+    },
+    {
+      "cue": "abuelo",
+      "response": "amor",
+      "frecuencia": 6.0,
+      "frecuencia_oficial": 6,
+      "total_cue": 175.0,
+      "n_oficial": 176,
+      "p": 0.03428571428571429,
+      "p_oficial": 0.0340909090909091
+    },
+    {
+      "cue": "abuelo",
+      "response": "ancestro",
+      "frecuencia": 1.0,
+      "frecuencia_oficial": 1,
+      "total_cue": 175.0,
+      "n_oficial": 176,
+      "p": 0.005714285714285714,
+      "p_oficial": 0.00568181818181818
+    },
+    {
+      "cue": "abuelo",
+      "response": "anciano",
+      "frecuencia": 13.0,
+      "frecuencia_oficial": 13,
+      "total_cue": 175.0,
+      "n_oficial": 176,
+      "p": 0.07428571428571429,
+      "p_oficial": 0.07386363636363638
+    }
+  ],
+  "ejemplos_solo_propios": [],
+  "ejemplos_solo_oficiales": [
+    {
+      "cue": "abuelo",
+      "response": "na",
+      "frecuencia_oficial": 1
+    },
+    {
+      "cue": "bolsillo",
+      "response": "no more responses",
+      "frecuencia_oficial": 1
+    },
+    {
+      "cue": "brazo",
+      "response": "no more responses",
+      "frecuencia_oficial": 1
+    },
+    {
+      "cue": "calcio",
+      "response": "na",
+      "frecuencia_oficial": 1
+    },
+    {
+      "cue": "condado",
+      "response": "no more responses",
+      "frecuencia_oficial": 1
+    },
+    {
+      "cue": "do",
+      "response": "na",
+      "frecuencia_oficial": 1
+    },
+    {
+      "cue": "hierba",
+      "response": "no more responses",
+      "frecuencia_oficial": 1
+    },
+    {
+      "cue": "maestro",
+      "response": "no more responses",
+      "frecuencia_oficial": 1
+    },
+    {
+      "cue": "manera",
+      "response": "no more responses",
+      "frecuencia_oficial": 1
+    },
+    {
+      "cue": "maña",
+      "response": "na",
+      "frecuencia_oficial": 1
+    }
+  ]
+}

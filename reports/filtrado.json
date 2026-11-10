@@ -1,0 +1,23 @@
+{
+  "archivo_fuente": "SWOWRP.R70.20220426.csv",
+  "opciones": {
+    "entrada": "/Users/carlosmanzanero/Documents/PLN/PLN-proyecto-2/data/raw/SWOWRP.R70.20220426.csv",
+    "min_frecuencia": 1,
+    "todas_las_respuestas": false,
+    "sin_filtro_cfc": false
+  },
+  "respuestas_validas": 2103771,
+  "cues": 13493,
+  "pares_cue_respuesta": 1056083,
+  "grafo_completo": {
+    "nodos": 13493,
+    "aristas": 835616,
+    "componentes_debiles": 1,
+    "componentes_fuertes": 43
+  },
+  "grafo_final": {
+    "nodos": 13451,
+    "aristas": 833440
+  },
+  "nodos_descartados": 42
+}
