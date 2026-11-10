@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diccionario-inverso"
+version = "0.1.0"
+description = "Diccionario inverso sobre normas de asociación SWOW-RP (Proyecto Unidad II, PLN, FMAT-UADY)"
+requires-python = ">=3.10"
+dependencies = [
+    "networkx>=3.2",
+    "pandas>=2.1",
+    "numpy>=1.26",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
