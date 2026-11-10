@@ -2,6 +2,8 @@ data/raw/*
 data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+!data/processed/node2vec.kv
+!data/processed/node2vec.json
 !data/processed/corpus/
 data/processed/corpus/*
 !data/processed/corpus/corpus.csv

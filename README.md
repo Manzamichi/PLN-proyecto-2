@@ -153,7 +153,8 @@ desarrollo de 0.125 a 0.087 (`reports/node2vec_resultados_dirigido.csv`).
 
 Salidas: `reports/node2vec_resultados.csv` y la mejor configuración en
 `data/processed/node2vec.kv` (con `KeyedVectors.save`, que conserva los IDs con
-espacios) más `node2vec.json` con la composición y el IDF.
+espacios) más `node2vec.json` con la composición y el IDF. Ambos se versionan
+para consultar sin reentrenar; el modelo de `--dirigido` queda local.
 
 ```python
 from diccionario_inverso.modelos.node2vec import ModeloNode2Vec
