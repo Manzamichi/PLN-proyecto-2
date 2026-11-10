@@ -13,6 +13,7 @@ from diccionario_inverso.modelos.node2vec import (
     evaluar,
     filtrar_aristas,
     generar_caminatas,
+    leer_corpus,
     particion_provisional,
     separar_particiones,
 )
@@ -148,6 +149,24 @@ def test_respeta_particion_asignada():
     desarrollo, prueba, provisional = separar_particiones(filas)
     assert not provisional
     assert [f["concepto"] for f in prueba] == ["perro"]
+
+
+def test_leer_corpus_toma_la_particion_del_csv(tmp_path):
+    corpus = tmp_path / "preprocesado.jsonl"
+    corpus.write_text(
+        '{"id": "a1", "concepto": "hielo", "definicion": "Agua fría.", "lemas_en_grafo": ["agua", "frío"], '
+        '"particion": "pendiente"}\n'
+        '{"id": "b2", "concepto": "muñeco de nieve", "definicion": "Figura de hielo.", '
+        '"lemas_en_grafo": ["hielo"], "particion": "pendiente"}\n', encoding="utf-8")
+    particion = tmp_path / "particion.csv"
+    particion.write_text("id,concepto,particion\na1,hielo,prueba\nb2,muñeco de nieve,desarrollo\n", encoding="utf-8")
+
+    desarrollo, prueba, provisional = separar_particiones(leer_corpus(corpus, particion))
+    assert not provisional
+    assert [f["concepto"] for f in desarrollo] == ["muñeco de nieve"]
+    assert prueba[0]["lemas"] == ["agua", "frío"]
+    _, _, provisional = separar_particiones(leer_corpus(corpus, tmp_path / "no_existe.csv"))
+    assert provisional
 
 
 def test_filtrar_aristas_debiles():

@@ -23,7 +23,7 @@ import logging
 import time
 from pathlib import Path
 
-from diccionario_inverso.config import DIR_PROCESADOS, DIR_REPORTES, RUTA_GRAFO
+from diccionario_inverso.config import DIR_PROCESADOS, DIR_REPORTES, RUTA_GRAFO, RUTA_PARTICION, RUTA_PREPROCESADO
 from diccionario_inverso.corpus.normalizacion import normalizar
 from diccionario_inverso.grafo import PESO_SIMILITUD, a_no_dirigido, cargar_grafo
 from diccionario_inverso.modelos.node2vec import (
@@ -38,7 +38,6 @@ from diccionario_inverso.modelos.node2vec import (
     separar_particiones,
 )
 
-RUTA_CORPUS = DIR_PROCESADOS / "corpus" / "preprocesado.jsonl"
 RUTA_MODELO = DIR_PROCESADOS / "node2vec.kv"
 RUTA_RESULTADOS = DIR_REPORTES / "node2vec_resultados.csv"
 
@@ -58,13 +57,13 @@ def explorar(args) -> None:
     logger.info("Grafo no dirigido: %d nodos, %d aristas (frecuencia >= %d)",
                 grafo.number_of_nodes(), grafo.number_of_edges(), args.frecuencia_min)
 
-    desarrollo, prueba, provisional = separar_particiones(leer_corpus(args.corpus))
+    desarrollo, prueba, provisional = separar_particiones(leer_corpus(args.corpus, args.particion))
     particion = "provisional" if provisional else "asignada"
-    logger.info("Definiciones: %d de desarrollo, %d de prueba (partición %s)",
-                len(desarrollo), len(prueba), particion)
+    logger.info("Definiciones: %d de desarrollo, %d de prueba (partición %s); "
+                "%d glosas de prueba también aparecen en desarrollo",
+                len(desarrollo), len(prueba), particion, glosas_compartidas(desarrollo, prueba))
     if provisional:
-        logger.warning("El corpus no tiene particiones asignadas; se usa una partición PROVISIONAL por concepto. "
-                       "%d glosas de prueba también aparecen en desarrollo.", glosas_compartidas(desarrollo, prueba))
+        logger.warning("El corpus no tiene particiones asignadas; se usa una partición PROVISIONAL por concepto.")
     idf, idf_por_defecto = calcular_idf([f["lemas"] for f in desarrollo])
 
     elegidas = [CONFIGURACIONES[i - 1] for i in args.configuraciones]
@@ -128,7 +127,9 @@ def main() -> None:
 
     ex = sub.add_parser("explorar")
     ex.add_argument("--grafo", type=Path, default=RUTA_GRAFO)
-    ex.add_argument("--corpus", type=Path, default=RUTA_CORPUS)
+    ex.add_argument("--corpus", type=Path, default=RUTA_PREPROCESADO)
+    ex.add_argument("--particion", type=Path, default=RUTA_PARTICION,
+                    help="CSV id,concepto,particion; si falta se usa una partición provisional")
     ex.add_argument("--peso", default=PESO_SIMILITUD, help="Atributo de arista usado como peso")
     ex.add_argument("--frecuencia-min", type=int, default=1,
                     help="Descarta aristas no dirigidas con menor frecuencia (1 = no filtra)")

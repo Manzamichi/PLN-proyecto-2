@@ -14,6 +14,7 @@ Uso desde otros bloques:
 
 from __future__ import annotations
 
+import csv
 import hashlib
 import json
 import math
@@ -136,15 +137,25 @@ class ModeloNode2Vec:
         return cls(wv, datos["idf"], datos["idf_por_defecto"], datos["nombre"])
 
 
-def leer_corpus(ruta: Path) -> list[dict]:
-    """Filas de preprocesado.jsonl con concepto, lemas_en_grafo y particion."""
+def leer_corpus(ruta: Path, ruta_particion: Path | None = None) -> list[dict]:
+    """Filas de preprocesado.jsonl con concepto, lemas_en_grafo y particion.
+
+    Si existe ruta_particion (particion.csv con id, concepto, particion), la
+    partición de cada definición se toma de ahí por id.
+    """
+    asignadas = {}
+    if ruta_particion is not None and Path(ruta_particion).is_file():
+        with Path(ruta_particion).open(encoding="utf-8", newline="") as archivo:
+            for fila in csv.DictReader(archivo):
+                asignadas[fila["id"]] = fila["particion"]
     filas = []
     with Path(ruta).open(encoding="utf-8") as archivo:
         for linea in archivo:
             if linea.strip():
                 fila = json.loads(linea)
                 filas.append({"concepto": fila["concepto"], "definicion": fila["definicion"],
-                              "lemas": fila["lemas_en_grafo"], "particion": fila["particion"]})
+                              "lemas": fila["lemas_en_grafo"],
+                              "particion": asignadas.get(fila["id"], fila["particion"])})
     return filas
 
 
