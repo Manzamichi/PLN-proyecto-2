@@ -1,0 +1,24 @@
+{
+  "estado": "FUENTE_SIN_VALIDAR_CONTRA_GRAFO",
+  "url_descarga": "https://kaikki.org/dictionary/downloads/es/es-extract.jsonl.gz",
+  "edicion": "eswiktionary",
+  "idioma_palabra": "es",
+  "idioma_definicion": "es",
+  "sha256_origen": "0a7a02456ecf34dd3419e0d5adf4f18da5531487dde31829d126afe86eade861",
+  "sha256_csv": "46da813a326e0dd6259712b36ef0832ec490bf7acc3c540184677f733b7d4819",
+  "definiciones": 91868,
+  "conceptos": 59521,
+  "max_por_concepto": 3,
+  "conteos": {
+    "entradas_leidas": 1016609,
+    "glosas_consideradas": 128078,
+    "limite_por_concepto": 15461,
+    "longitud_fuera_de_rango": 17483,
+    "mencion_literal_objetivo": 3241,
+    "entradas_sin_marca_lema": 698227,
+    "duplicadas": 25,
+    "formas_flexivas": 15
+  },
+  "archivo_menciones_descartadas": "corpus_fuente_menciones.csv",
+  "nota": "No constituye todavía el corpus de evaluación SWOW-RP. No hay definiciones generadas por IA."
+}

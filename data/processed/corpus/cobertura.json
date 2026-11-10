@@ -1,0 +1,29 @@
+{
+  "estado": "VALIDADO_CONTRA_LISTA_DE_NODOS",
+  "minimo_requerido": 300,
+  "cumple_minimo": true,
+  "definiciones_fuente": 91868,
+  "definiciones_aceptadas": 20512,
+  "conceptos_aceptados": 9405,
+  "definiciones_descartadas": 71356,
+  "motivos_descarte": {
+    "objetivo_fuera_grafo": 71164,
+    "mencion_lematizada_objetivo": 192
+  },
+  "nodos_activos_declarados": 13451,
+  "definiciones_con_lemas_en_grafo": 20410,
+  "cobertura_definiciones": 0.9950273010920437,
+  "promedio_lemas_en_grafo": 5.151569812792512,
+  "promedio_lemas_unicos_en_grafo": 5.047776911076443,
+  "cobertura_lexica_micro": 0.8404972876664386,
+  "cobertura_lexica_macro": 0.8558997916052433,
+  "sin_lemas_en_grafo": 102,
+  "modelo": "core_news_md",
+  "version_modelo": "3.8.0",
+  "sha256_corpus_fuente": "46da813a326e0dd6259712b36ef0832ec490bf7acc3c540184677f733b7d4819",
+  "sha256_lista_nodos": "b67dd524c5a3a8137a9f7ecad54beb512f8e35b5482ef95fe0cb6b4b87189fd9",
+  "particiones": {
+    "pendiente": 20512
+  },
+  "nota": "La lista debe proceder del grafo final. No se eliminan casos sin cobertura. Carlos asigna desarrollo/prueba."
+}
