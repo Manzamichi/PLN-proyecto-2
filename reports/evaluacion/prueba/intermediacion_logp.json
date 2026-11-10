@@ -1,0 +1,16 @@
+{
+  "modelo": "intermediacion_logp",
+  "n": 14367,
+  "p@1": 0.007934850699519732,
+  "p@3": 0.020811582097863157,
+  "p@5": 0.0322962344261154,
+  "mrr": 0.025545810034409786,
+  "cobertura_modelo": 0.4208255028885641,
+  "rango_mediano_encontrados": 81.0,
+  "cobertura_lexica": 0.8539514650501919,
+  "definiciones_sin_lemas": 74,
+  "segundos_por_definicion": 1.8355811334247654,
+  "particion": "prueba",
+  "muestra": null,
+  "semilla": 42
+}

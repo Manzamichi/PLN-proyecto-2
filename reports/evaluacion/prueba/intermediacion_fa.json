@@ -1,0 +1,16 @@
+{
+  "modelo": "intermediacion_fa",
+  "n": 14367,
+  "p@1": 0.007238811164474142,
+  "p@3": 0.020254750469826686,
+  "p@5": 0.029790492099951278,
+  "mrr": 0.0246031065439267,
+  "cobertura_modelo": 0.4208255028885641,
+  "rango_mediano_encontrados": 82.0,
+  "cobertura_lexica": 0.8539514650501919,
+  "definiciones_sin_lemas": 74,
+  "segundos_por_definicion": 2.298908077857591,
+  "particion": "prueba",
+  "muestra": null,
+  "semilla": 42
+}

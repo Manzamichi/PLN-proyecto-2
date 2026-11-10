@@ -1,0 +1,16 @@
+{
+  "modelo": "cercania_logp",
+  "n": 14367,
+  "p@1": 0.008561286281060764,
+  "p@3": 0.021716433493422425,
+  "p@5": 0.03153059093756525,
+  "mrr": 0.02384699515064066,
+  "cobertura_modelo": 0.4208255028885641,
+  "rango_mediano_encontrados": 114.5,
+  "cobertura_lexica": 0.8539514650501919,
+  "definiciones_sin_lemas": 74,
+  "segundos_por_definicion": 0.05878773376274506,
+  "particion": "prueba",
+  "muestra": null,
+  "semilla": 42
+}

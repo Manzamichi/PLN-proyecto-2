@@ -1,0 +1,16 @@
+{
+  "modelo": "grado",
+  "n": 14367,
+  "p@1": 0.02276049279599081,
+  "p@3": 0.055891974664160925,
+  "p@5": 0.08289830862392984,
+  "mrr": 0.06075353578565713,
+  "cobertura_modelo": 0.7158070578408854,
+  "rango_mediano_encontrados": 63.0,
+  "cobertura_lexica": 0.8539514650501919,
+  "definiciones_sin_lemas": 74,
+  "segundos_por_definicion": 0.30658383323874067,
+  "particion": "prueba",
+  "muestra": null,
+  "semilla": 42
+}

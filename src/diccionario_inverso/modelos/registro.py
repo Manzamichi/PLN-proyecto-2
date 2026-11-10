@@ -80,3 +80,24 @@ def _intermediacion_fa(G):
 def _intermediacion_logp(G):
     from .centralidades import ModeloIntermediacionReducido
     return ModeloIntermediacionReducido(G, esquema_costo="logp")
+
+
+def _cargar_node2vec():
+    from ..config import DIR_PROCESADOS
+    from .node2vec import ModeloNode2Vec
+
+    ruta = DIR_PROCESADOS / "node2vec.kv"
+    if not ruta.is_file():
+        raise FileNotFoundError(f"{ruta} no existe. Ejecuta scripts/modelo_node2vec.py explorar")
+    return ModeloNode2Vec.cargar(ruta)
+
+
+@registrar("node2vec_suma")
+def _node2vec_suma(G):
+    from .node2vec import ModeloNode2Vec
+    return ModeloNode2Vec(_cargar_node2vec().wv, nombre="node2vec_suma")
+
+
+@registrar("node2vec_suma_idf")
+def _node2vec_suma_idf(G):
+    return _cargar_node2vec()

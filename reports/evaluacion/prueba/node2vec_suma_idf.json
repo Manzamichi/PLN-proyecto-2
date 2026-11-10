@@ -1,0 +1,16 @@
+{
+  "modelo": "node2vec_suma_idf",
+  "n": 14367,
+  "p@1": 0.06605415187582654,
+  "p@3": 0.13899909514860445,
+  "p@5": 0.18194473446091738,
+  "mrr": 0.127628384730707,
+  "cobertura_modelo": 0.9948493074406626,
+  "rango_mediano_encontrados": 81.0,
+  "cobertura_lexica": 0.8539514650501919,
+  "definiciones_sin_lemas": 74,
+  "segundos_por_definicion": 0.0051750388512140375,
+  "particion": "prueba",
+  "muestra": null,
+  "semilla": 42
+}

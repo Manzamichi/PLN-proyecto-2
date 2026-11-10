@@ -1,0 +1,16 @@
+{
+  "modelo": "cercania_fa",
+  "n": 14367,
+  "p@1": 0.00897891000208812,
+  "p@3": 0.02213405721444978,
+  "p@5": 0.03208742256560173,
+  "mrr": 0.02419048713217025,
+  "cobertura_modelo": 0.4208255028885641,
+  "rango_mediano_encontrados": 126.0,
+  "cobertura_lexica": 0.8539514650501919,
+  "definiciones_sin_lemas": 74,
+  "segundos_por_definicion": 0.05559181770032571,
+  "particion": "prueba",
+  "muestra": null,
+  "semilla": 42
+}

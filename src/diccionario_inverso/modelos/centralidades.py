@@ -49,38 +49,25 @@ class ModeloCercaniaReducido(ModeloBusqueda):
         self.nombre = f"cercania_{esquema_costo}_reducido"
 
     def rankear(self, lemas: Sequence[str], k: int | None = None) -> list[str]:
-        lemas_validos = [l for l in lemas if l in self.G]
+        lemas_validos = list(dict.fromkeys(l for l in lemas if l in self.G))
         if not lemas_validos:
             return []
 
         # Subgrafo reducido de la vecindad de los lemas
         sub_G = extraer_subgrafo_reducido(self.G, lemas_validos, radio=self.radio_vecindad)
-        
-        # Calcular distancias de camino mínimo desde los lemas hacia los candidatos
-        puntajes: dict[str, float] = {}
-        
-        for candidato in sub_G.nodes():
-            if candidato in lemas_validos:
-                continue  # Excluir palabras de la propia definición
 
-            distancia_total = 0.0
-            alcanzable = True
+        # Un Dijkstra por lema (en vez de uno por par lema-candidato): mismo resultado
+        distancias = [
+            nx.single_source_dijkstra_path_length(sub_G, lema, weight=self.esquema_costo)
+            for lema in lemas_validos
+        ]
+        candidatos = set(sub_G) - set(lemas_validos)
+        for d in distancias:
+            candidatos &= d.keys()  # alcanzable desde todos los lemas
 
-            for lema in lemas_validos:
-                try:
-                    # Distancia ponderada en el subgrafo
-                    d = nx.shortest_path_length(sub_G, source=lema, target=candidato, weight=self.esquema_costo)
-                    distancia_total += d
-                except (nx.NetworkXNoPath, nx.NodeNotFound):
-                    alcanzable = False
-                    break
-
-            if alcanzable:
-                # A menor distancia total, mayor relevancia (invertimos para ranking descendente)
-                puntajes[candidato] = -distancia_total
-
-        # Ordenar candidatos por puntaje descendente
-        candidatos_ordenados = sorted(puntajes.keys(), key=lambda x: puntajes[x], reverse=True)
+        # A menor distancia total, mayor relevancia; desempate alfabético
+        puntajes = {c: sum(d[c] for d in distancias) for c in candidatos}
+        candidatos_ordenados = sorted(puntajes, key=lambda c: (puntajes[c], c))
         return candidatos_ordenados[:k] if k is not None else candidatos_ordenados
 
 
