@@ -1,0 +1,4 @@
+configuracion,dimensions,walk_length,num_walks,p,q,grafo,peso,frecuencia_min,composicion,conjunto,particion,p@1,p@3,p@5,MRR,cobertura,lemas_utiles,segundos_caminatas,segundos_entrenamiento
+1,300,80,10,1,1,dirigido,p,1,node2vec_suma,desarrollo,asignada,0.036,0.072,0.106,0.076,0.995,5.11,166,554
+1,300,80,10,1,1,dirigido,p,1,node2vec_suma_idf,desarrollo,asignada,0.041,0.087,0.124,0.087,0.995,5.11,166,554
+1,300,80,10,1,1,dirigido,p,1,node2vec_suma_idf,prueba,asignada,0.041,0.094,0.13,0.09,0.995,5.17,166,554
