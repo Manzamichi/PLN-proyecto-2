@@ -156,6 +156,10 @@ Salidas: `reports/node2vec_resultados.csv` y la mejor configuración en
 espacios) más `node2vec.json` con la composición y el IDF. Ambos se versionan
 para consultar sin reentrenar; el modelo de `--dirigido` queda local.
 
+Análisis de errores del modelo final en prueba: `scripts/errores_node2vec.py` genera
+`reports/node2vec_errores_prueba.csv` (rango, top 5 y una pista de causa por definición) y
+`reports/node2vec_analisis_errores.md` reúne 17 casos clasificados a mano.
+
 ```python
 from diccionario_inverso.modelos.node2vec import ModeloNode2Vec
 
