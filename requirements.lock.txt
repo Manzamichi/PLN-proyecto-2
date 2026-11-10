@@ -6,6 +6,7 @@ certifi==2026.10.23
 charset-normalizer==3.5.2
 click==8.3.1
 cloudpathlib==0.26.0
+cloudpickle==3.1.2
 colorama==0.4.6
 confection==0.1.5
 contourpy==1.4.0
@@ -13,9 +14,11 @@ cycler==0.12.1
 cymem==2.0.16
 es-core-news-md @ https://github.com/explosion/spacy-models/releases/download/es_core_news_md-3.8.0/es_core_news_md-3.8.0-py3-none-any.whl#sha256=478b8bb3f3e8eb149192f7d80e7cd64f990b7e9bccbc5329df41a57e86326be2
 fonttools==4.68.0
+gensim==4.4.0
 idna==3.20
 iniconfig==2.3.1
 jinja2==3.1.6
+joblib==1.6.0
 kiwisolver==1.5.1
 markdown-it-py==4.2.0
 markupsafe==3.0.4
@@ -37,6 +40,7 @@ pytest==9.2.0
 python-dateutil==4.0.0
 requests==2.34.2
 rich==15.0.0
+scipy==1.18.1
 setuptools==84.2.1
 shellingham==1.5.4
 smart-open==7.7.1

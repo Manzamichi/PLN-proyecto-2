@@ -1,0 +1,10 @@
+configuracion,dimensions,walk_length,num_walks,p,q,peso,frecuencia_min,composicion,conjunto,particion,p@1,p@3,p@5,MRR,cobertura,lemas_utiles,segundos_caminatas,segundos_entrenamiento
+1,300,80,10,1,1,p,1,node2vec_suma,desarrollo,asignada,0.054,0.117,0.163,0.113,0.995,5.11,762,624
+1,300,80,10,1,1,p,1,node2vec_suma_idf,desarrollo,asignada,0.06,0.134,0.18,0.125,0.995,5.11,762,624
+2,100,80,10,1,1,p,1,node2vec_suma,desarrollo,asignada,0.06,0.123,0.161,0.115,0.995,5.11,0,334
+2,100,80,10,1,1,p,1,node2vec_suma_idf,desarrollo,asignada,0.068,0.144,0.186,0.131,0.995,5.11,0,334
+3,100,40,10,1,0.5,p,1,node2vec_suma,desarrollo,asignada,0.052,0.113,0.153,0.106,0.995,5.11,610,161
+3,100,40,10,1,0.5,p,1,node2vec_suma_idf,desarrollo,asignada,0.059,0.128,0.179,0.12,0.995,5.11,610,161
+4,100,40,10,1,2,p,1,node2vec_suma,desarrollo,asignada,0.051,0.108,0.145,0.103,0.995,5.11,620,161
+4,100,40,10,1,2,p,1,node2vec_suma_idf,desarrollo,asignada,0.059,0.129,0.173,0.119,0.995,5.11,620,161
+2,100,80,10,1,1,p,1,node2vec_suma_idf,prueba,asignada,0.067,0.139,0.183,0.128,0.995,5.17,0,334

@@ -10,6 +10,22 @@ Python 3.12. Desde la raíz, en PowerShell:
 ```powershell
 uv venv --python 3.12 .venv
 uv pip install --python .venv/Scripts/python.exe -r requirements.lock.txt -e ".[dev]"
+uv pip install --python .venv/Scripts/python.exe --no-deps node2vec==0.5.0
+```
+
+`node2vec` 0.5.0 declara `numpy<2` y el lock fija numpy 2.5.4, así que se
+instala aparte con `--no-deps` para no bajar numpy. Sus dependencias (gensim,
+joblib, tqdm, networkx) ya vienen en el proyecto. Probado con Python 3.12,
+numpy 2.5.4 y gensim 4.4.0. `uv pip check` reporta esa restricción de numpy;
+es esperado.
+
+Si uv no puede enlazar el Python descargado (pasa cuando AppData está
+virtualizado), se pueden dejar Python y caché dentro del proyecto antes de
+`uv venv`, en carpetas ya ignoradas por Git:
+
+```powershell
+$env:UV_PYTHON_INSTALL_DIR = "$PWD\.local\python"
+$env:UV_CACHE_DIR = "$PWD\.uv-cache"
 ```
 
 ## Grafo
@@ -104,6 +120,47 @@ Para agregar un modelo, registrarlo en `src/diccionario_inverso/modelos/registro
 ```python
 from diccionario_inverso.evaluacion import cargar_ejemplos, evaluar_modelo
 detalle, resumen = evaluar_modelo(mi_modelo, cargar_ejemplos("desarrollo"))
+```
+
+## Modelo híbrido con node2vec
+
+Requiere `data/processed/grafo_swow_rp.pkl` y el corpus versionado.
+
+```powershell
+.venv/Scripts/python.exe scripts/modelo_node2vec.py explorar --configuraciones 1
+.venv/Scripts/python.exe scripts/modelo_node2vec.py explorar
+.venv/Scripts/python.exe scripts/modelo_node2vec.py consultar "insecto de rayas que produce miel"
+```
+
+Entrena node2vec sobre la copia no dirigida del grafo (`a_no_dirigido`) con
+peso `p` (`--peso` permite otro atributo), `SEMILLA=42` y `workers=1`, que dan
+embeddings idénticos entre corridas. Recorre `CONFIGURACIONES` de
+`diccionario_inverso.modelos.node2vec` (la 1 es la de clase, 300 dimensiones) y
+reutiliza las caminatas cuando solo cambia la dimensión
+(`segundos_caminatas = 0`). La definición se representa como suma de los
+vectores de sus lemas o suma ponderada por IDF = log10(N / df), con cada
+definición de desarrollo como documento. La mejor combinación por MRR en
+desarrollo es la única evaluada en prueba.
+
+Usa la partición de `data/processed/corpus/particion.csv` (ver Evaluación).
+Si ese archivo falta, usa una partición **provisional** determinista por
+concepto (mitad y mitad, sin modificar el corpus). La columna `particion`
+de los resultados dice `asignada` o `provisional`.
+`--frecuencia-min N` descarta en la copia no dirigida las aristas con
+frecuencia menor a N; por defecto no filtra. `--dirigido` camina sobre el
+grafo dirigido cue -> respuesta; con la configuración 1 bajó el MRR de
+desarrollo de 0.125 a 0.087 (`reports/node2vec_resultados_dirigido.csv`).
+
+Salidas: `reports/node2vec_resultados.csv` y la mejor configuración en
+`data/processed/node2vec.kv` (con `KeyedVectors.save`, que conserva los IDs con
+espacios) más `node2vec.json` con la composición y el IDF. Ambos se versionan
+para consultar sin reentrenar; el modelo de `--dirigido` queda local.
+
+```python
+from diccionario_inverso.modelos.node2vec import ModeloNode2Vec
+
+modelo = ModeloNode2Vec.cargar("data/processed/node2vec.kv")
+modelo.rankear(["insecto", "miel"], k=10)
 ```
 
 ## Reconstrucción del banco y pruebas
