@@ -76,6 +76,36 @@ Los modelos implementan `diccionario_inverso.modelos.ModeloBusqueda`, excluyen
 los lemas de entrada de sus candidatos y devuelven `[]` si no hay lemas.
 El campo `concepto` se utiliza exclusivamente para evaluar.
 
+## Evaluación
+
+Partición desarrollo/prueba por concepto objetivo (30 % / 70 % de los conceptos, semilla 42).
+Todas las definiciones de un mismo concepto quedan en la misma partición, así el ajuste en
+desarrollo no ve objetivos de prueba. Se genera una sola vez y se versiona:
+
+```bash
+python scripts/particionar.py            # data/processed/corpus/particion.csv, reports/particion.json
+```
+
+Evaluación (p@1, p@3, p@5, MRR, cobertura del modelo y cobertura léxica):
+
+```bash
+python scripts/evaluar.py --listar
+python scripts/evaluar.py --particion desarrollo --muestra 300 --procesos 8   # prueba rápida
+python scripts/evaluar.py --particion prueba --procesos 8                      # resultados finales
+```
+
+Resultados en `reports/evaluacion/<particion>/`: `<modelo>.json`, `<modelo>_detalle.csv`
+(rango del objetivo y top 5 por definición) y `resumen.md`. Las definiciones sin lemas en el
+grafo o cuyo objetivo no aparece en el ranking cuentan como fallo.
+
+Para agregar un modelo, registrarlo en `src/diccionario_inverso/modelos/registro.py` con
+`@registrar("nombre")`. Para ajustar hiperparámetros en desarrollo desde código:
+
+```python
+from diccionario_inverso.evaluacion import cargar_ejemplos, evaluar_modelo
+detalle, resumen = evaluar_modelo(mi_modelo, cargar_ejemplos("desarrollo"))
+```
+
 ## Reconstrucción del banco y pruebas
 
 ```powershell

@@ -11,7 +11,12 @@ DIR_RAW = DIR_DATOS / "raw"
 DIR_PROCESADOS = DIR_DATOS / "processed"
 DIR_REPORTES = RAIZ / "reports"
 DIR_FIGURAS = DIR_REPORTES / "figuras"
+DIR_EVALUACION = DIR_REPORTES / "evaluacion"
 
 RUTA_GRAFO = DIR_PROCESADOS / "grafo_swow_rp.pkl"
 RUTA_ARISTAS = DIR_PROCESADOS / "aristas_swow_rp.csv"
 RUTA_NODOS = DIR_PROCESADOS / "nodos.txt"
+
+DIR_CORPUS = DIR_PROCESADOS / "corpus"
+RUTA_PREPROCESADO = DIR_CORPUS / "preprocesado.jsonl"
+RUTA_PARTICION = DIR_CORPUS / "particion.csv"

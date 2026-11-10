@@ -7,6 +7,10 @@ data/processed/corpus/*
 !data/processed/corpus/corpus.csv
 !data/processed/corpus/preprocesado.jsonl
 !data/processed/corpus/cobertura.json
+!data/processed/corpus/particion.csv
+
+# Corridas rápidas de evaluación (muestras)
+reports/evaluacion/*_muestra*/
 .venv/
 venv/
 .uv-cache/
