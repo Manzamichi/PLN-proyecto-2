@@ -1,0 +1,21 @@
+{
+  "semilla": 42,
+  "fraccion_desarrollo_conceptos": 0.3,
+  "unidad_de_particion": "concepto",
+  "sha256_preprocesado": "69f3f6cd582ce3a0c9de52eb99c91138a5f63a659b6dca5744715dbb0bb5ac8a",
+  "conceptos_en_ambas_particiones": 0,
+  "particiones": {
+    "desarrollo": {
+      "conceptos": 2822,
+      "definiciones": 6145,
+      "definiciones_sin_lemas": 28,
+      "cobertura_lexica_media": 0.8604549759203657
+    },
+    "prueba": {
+      "conceptos": 6583,
+      "definiciones": 14367,
+      "definiciones_sin_lemas": 74,
+      "cobertura_lexica_media": 0.8539514650501918
+    }
+  }
+}
