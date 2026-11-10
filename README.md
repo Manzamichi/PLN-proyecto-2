@@ -147,7 +147,9 @@ Si ese archivo falta, usa una partición **provisional** determinista por
 concepto (mitad y mitad, sin modificar el corpus). La columna `particion`
 de los resultados dice `asignada` o `provisional`.
 `--frecuencia-min N` descarta en la copia no dirigida las aristas con
-frecuencia menor a N; por defecto no filtra.
+frecuencia menor a N; por defecto no filtra. `--dirigido` camina sobre el
+grafo dirigido cue -> respuesta; con la configuración 1 bajó el MRR de
+desarrollo de 0.125 a 0.087 (`reports/node2vec_resultados_dirigido.csv`).
 
 Salidas: `reports/node2vec_resultados.csv` y la mejor configuración en
 `data/processed/node2vec.kv` (con `KeyedVectors.save`, que conserva los IDs con

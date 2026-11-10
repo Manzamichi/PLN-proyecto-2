@@ -87,6 +87,19 @@ def test_respeta_k(modelo):
     assert len(modelo.rankear(["sol", "playa"], k=100)) == len(completo)
 
 
+def test_entrena_sobre_grafo_dirigido():
+    G = nx.DiGraph()
+    for u, v, f, p in ARISTAS:
+        G.add_edge(u, v, frecuencia=f, p=p)
+    caminatas = generar_caminatas(G, walk_length=10, num_walks=5, p=1, q=1)
+    wv = entrenar(caminatas, dimensiones=16)
+    assert set(wv.index_to_key) == set(G)
+    # En el grafo dirigido cada paso sigue una arista cue -> respuesta.
+    for caminata in caminatas.walks:
+        assert all(G.has_edge(u, v) for u, v in zip(caminata, caminata[1:]))
+    assert "muñeco de nieve" not in ModeloNode2Vec(wv).rankear(["muñeco de nieve", "frío"])
+
+
 def test_suma_idf_pondera_los_lemas(wv):
     idf, por_defecto = calcular_idf([["frío", "hielo"], ["frío", "mar"], ["sol"]])
     assert idf["frío"] == pytest.approx(np.log10(3 / 2))

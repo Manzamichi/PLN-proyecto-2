@@ -51,11 +51,14 @@ def glosas_compartidas(desarrollo: list[dict], prueba: list[dict]) -> int:
 
 
 def explorar(args) -> None:
-    grafo = a_no_dirigido(cargar_grafo(args.grafo))
+    grafo = cargar_grafo(args.grafo)
+    if not args.dirigido:
+        grafo = a_no_dirigido(grafo)
+    tipo_grafo = "dirigido" if args.dirigido else "no_dirigido"
     if args.frecuencia_min > 1:
         grafo = filtrar_aristas(grafo, args.frecuencia_min)
-    logger.info("Grafo no dirigido: %d nodos, %d aristas (frecuencia >= %d)",
-                grafo.number_of_nodes(), grafo.number_of_edges(), args.frecuencia_min)
+    logger.info("Grafo %s: %d nodos, %d aristas (frecuencia >= %d)",
+                tipo_grafo, grafo.number_of_nodes(), grafo.number_of_edges(), args.frecuencia_min)
 
     desarrollo, prueba, provisional = separar_particiones(leer_corpus(args.corpus, args.particion))
     particion = "provisional" if provisional else "asignada"
@@ -86,7 +89,8 @@ def explorar(args) -> None:
         logger.info("Configuración %d: entrenamiento en %d s", numero, segundos_entrenamiento)
 
         for modelo in (ModeloNode2Vec(wv), ModeloNode2Vec(wv, idf, idf_por_defecto)):
-            fila = {"configuracion": numero, **config, "peso": args.peso, "frecuencia_min": args.frecuencia_min,
+            fila = {"configuracion": numero, **config, "grafo": tipo_grafo, "peso": args.peso,
+                    "frecuencia_min": args.frecuencia_min,
                     "composicion": modelo.nombre, "conjunto": "desarrollo", "particion": particion,
                     **evaluar(modelo, desarrollo),
                     "segundos_caminatas": segundos_caminatas, "segundos_entrenamiento": segundos_entrenamiento}
@@ -131,6 +135,8 @@ def main() -> None:
     ex.add_argument("--particion", type=Path, default=RUTA_PARTICION,
                     help="CSV id,concepto,particion; si falta se usa una partición provisional")
     ex.add_argument("--peso", default=PESO_SIMILITUD, help="Atributo de arista usado como peso")
+    ex.add_argument("--dirigido", action="store_true",
+                    help="Camina sobre el grafo dirigido cue -> respuesta en lugar de la copia no dirigida")
     ex.add_argument("--frecuencia-min", type=int, default=1,
                     help="Descarta aristas no dirigidas con menor frecuencia (1 = no filtra)")
     ex.add_argument("--configuraciones", type=int, nargs="+", default=list(range(1, len(CONFIGURACIONES) + 1)),
