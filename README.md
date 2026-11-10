@@ -16,7 +16,10 @@ uv pip install --python .venv/Scripts/python.exe -r requirements.lock.txt -e ".[
 
 Descargar SWOW-RP22 desde [Small World of Words](https://smallworldofwords.org/en/project/research)
 y colocar el CSV balanceado `SWOW-RP.R70.<version>.csv` en `data/raw/`.
-Los datos SWOW y sus derivados se comparten entre el equipo fuera de Git.
+Las respuestas de SWOW, el grafo y su lista de nodos se comparten entre el equipo
+fuera de Git.
+Para el bloque de corpus basta con `data/processed/nodos.txt`, generado por el
+script o proporcionado por quien construyó el grafo.
 
 ```powershell
 .venv/Scripts/python.exe scripts/construir_grafo.py
@@ -41,8 +44,19 @@ Con `nodos.txt` del grafo final (generado localmente o compartido por el equipo)
 ```
 
 También se acepta CSV `nodo,grado` (se excluye grado cero) o JSON con una lista
-de IDs activos. El banco `data/corpus_fuente.csv` está incluido y aún requiere
-filtrarse contra el grafo. `particion=pendiente` debe asignarse a desarrollo/prueba.
+de IDs activos. El banco `data/corpus_fuente.csv` está incluido.
+
+El corpus validado se encuentra en `data/processed/corpus/`: **20,512 definiciones
+para 9,405 conceptos**, contrastadas con la lista de 13,451 nodos de Carlos.
+Se versionan `corpus.csv`, `preprocesado.jsonl` y `cobertura.json` para que los
+modelos puedan usar la misma entrada. La lista de nodos y la auditoría completa
+`descartadas.csv` permanecen locales. `particion=pendiente` debe asignarse a
+desarrollo/prueba por concepto, evitando glosas idénticas entre particiones,
+antes de ajustar o evaluar los modelos.
+
+Cobertura de definiciones: **99.50%**; cobertura léxica micro: **84.05%**;
+promedio de lemas presentes: **5.15**. Se conservan 102 definiciones sin lemas
+en el grafo. Estas cifras miden cobertura, no aciertos de los modelos.
 
 Se generan `corpus.csv`, `preprocesado.jsonl`, `descartadas.csv` y `cobertura.json`.
 Código de salida 2 si quedan menos de 300 definiciones. Los casos sin cobertura

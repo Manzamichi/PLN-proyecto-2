@@ -2,6 +2,11 @@ data/raw/*
 data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+!data/processed/corpus/
+data/processed/corpus/*
+!data/processed/corpus/corpus.csv
+!data/processed/corpus/preprocesado.jsonl
+!data/processed/corpus/cobertura.json
 .venv/
 venv/
 .uv-cache/
