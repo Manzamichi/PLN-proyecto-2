@@ -1,1 +1,19 @@
+# Datos SWOW-RP: licencia CC BY-NC-ND, no se redistribuyen
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# IDE / SO
+.vscode/
+.idea/
 .DS_Store
