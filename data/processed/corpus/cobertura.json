@@ -23,7 +23,8 @@
   "sha256_corpus_fuente": "46da813a326e0dd6259712b36ef0832ec490bf7acc3c540184677f733b7d4819",
   "sha256_lista_nodos": "b67dd524c5a3a8137a9f7ecad54beb512f8e35b5482ef95fe0cb6b4b87189fd9",
   "particiones": {
-    "pendiente": 20512
+    "desarrollo": 6145,
+    "prueba": 14367
   },
   "nota": "La lista debe proceder del grafo final. No se eliminan casos sin cobertura. Carlos asigna desarrollo/prueba."
 }

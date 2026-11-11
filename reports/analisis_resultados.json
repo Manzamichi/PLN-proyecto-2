@@ -1,0 +1,193 @@
+{
+  "pruebas_mcnemar": {
+    "cercania_fa vs cercania_logp": {
+      "p@1": {
+        "a": 0.00897891000208812,
+        "b": 0.008561286281060764,
+        "solo_a": 38,
+        "solo_b": 32,
+        "p_valor": 0.5500973172303969
+      },
+      "p@5": {
+        "a": 0.03208742256560173,
+        "b": 0.03153059093756525,
+        "solo_a": 106,
+        "solo_b": 98,
+        "p_valor": 0.6240645324651698
+      }
+    },
+    "intermediacion_fa vs intermediacion_logp": {
+      "p@1": {
+        "a": 0.007238811164474142,
+        "b": 0.007934850699519732,
+        "solo_a": 5,
+        "solo_b": 15,
+        "p_valor": 0.044171344908442614
+      },
+      "p@5": {
+        "a": 0.029790492099951278,
+        "b": 0.0322962344261154,
+        "solo_a": 30,
+        "solo_b": 66,
+        "p_valor": 0.00035403202361796403
+      }
+    },
+    "cercania_fa vs intermediacion_fa": {
+      "p@1": {
+        "a": 0.00897891000208812,
+        "b": 0.007238811164474142,
+        "solo_a": 89,
+        "solo_b": 64,
+        "p_valor": 0.052345063273163205
+      },
+      "p@5": {
+        "a": 0.03208742256560173,
+        "b": 0.029790492099951278,
+        "solo_a": 245,
+        "solo_b": 212,
+        "p_valor": 0.13442009658108084
+      }
+    },
+    "cercania_logp vs intermediacion_logp": {
+      "p@1": {
+        "a": 0.008561286281060764,
+        "b": 0.007934850699519732,
+        "solo_a": 74,
+        "solo_b": 65,
+        "p_valor": 0.4974223078833876
+      },
+      "p@5": {
+        "a": 0.03153059093756525,
+        "b": 0.0322962344261154,
+        "solo_a": 203,
+        "solo_b": 214,
+        "p_valor": 0.6243447107630009
+      }
+    },
+    "node2vec_suma vs node2vec_suma_idf": {
+      "p@1": {
+        "a": 0.05331662838449224,
+        "b": 0.06605415187582654,
+        "solo_a": 98,
+        "solo_b": 281,
+        "p_valor": 8.872147752725633e-21
+      },
+      "p@5": {
+        "a": 0.1548687965476439,
+        "b": 0.18194473446091738,
+        "solo_a": 158,
+        "solo_b": 547,
+        "p_valor": 2.323240389995762e-48
+      }
+    },
+    "grado vs node2vec_suma_idf": {
+      "p@1": {
+        "a": 0.02276049279599081,
+        "b": 0.06605415187582654,
+        "solo_a": 159,
+        "solo_b": 781,
+        "p_valor": 3.2234320756736054e-91
+      },
+      "p@5": {
+        "a": 0.08289830862392984,
+        "b": 0.18194473446091738,
+        "solo_a": 371,
+        "solo_b": 1794,
+        "p_valor": 4.0122721957623735e-205
+      }
+    }
+  },
+  "centralidad_vs_embeddings": {
+    "modelos": [
+      "grado",
+      "node2vec_suma_idf"
+    ],
+    "ganador_pct": {
+      "node2vec_suma_idf": 71.49718103988306,
+      "grado": 25.809145959490497,
+      "empate": 2.6936730006264358
+    },
+    "aciertos_top5": {
+      "solo_centralidad": 371,
+      "solo_embeddings": 1794,
+      "ambos": 820
+    },
+    "p@5_oraculo": 0.2077678012111088,
+    "por_categoria": {
+      "adj": {
+        "definiciones": 3261,
+        "p@5_grado": 0.0665440049064704,
+        "p@5_node2vec_suma_idf": 0.14443422263109476,
+        "mrr_grado": 0.04825629799982419,
+        "mrr_node2vec_suma_idf": 0.09873187748711144,
+        "gana_grado_pct": 26.954921803127874,
+        "gana_node2vec_suma_idf_pct": 70.59184299294695
+      },
+      "noun": {
+        "definiciones": 8732,
+        "p@5_grado": 0.08634906092533211,
+        "p@5_node2vec_suma_idf": 0.19594594594594594,
+        "mrr_grado": 0.06410331313132371,
+        "mrr_node2vec_suma_idf": 0.13842653313639278,
+        "gana_grado_pct": 26.649106733852495,
+        "gana_node2vec_suma_idf_pct": 70.76271186440678
+      },
+      "verb": {
+        "definiciones": 2374,
+        "p@5_grado": 0.09267059814658804,
+        "p@5_node2vec_suma_idf": 0.18197135636057288,
+        "mrr_grado": 0.06559904405745183,
+        "mrr_node2vec_suma_idf": 0.12760398634945874,
+        "gana_grado_pct": 21.145745577085087,
+        "gana_node2vec_suma_idf_pct": 75.44229149115417
+      }
+    },
+    "por_numero_de_lemas": {
+      "0": {
+        "definiciones": 74,
+        "p@5_grado": 0.0,
+        "p@5_node2vec_suma_idf": 0.0,
+        "mrr_grado": 0.0,
+        "mrr_node2vec_suma_idf": 0.0,
+        "gana_grado_pct": 0.0,
+        "gana_node2vec_suma_idf_pct": 0.0
+      },
+      "1-2": {
+        "definiciones": 2497,
+        "p@5_grado": 0.07969563476171405,
+        "p@5_node2vec_suma_idf": 0.15218261914297157,
+        "mrr_grado": 0.05596952362937963,
+        "mrr_node2vec_suma_idf": 0.1032220906683927,
+        "gana_grado_pct": 22.947537044453345,
+        "gana_node2vec_suma_idf_pct": 74.8898678414097
+      },
+      "3-5": {
+        "definiciones": 7098,
+        "p@5_grado": 0.07931811777965624,
+        "p@5_node2vec_suma_idf": 0.1834319526627219,
+        "mrr_grado": 0.05982853463246373,
+        "mrr_node2vec_suma_idf": 0.12908021631356265,
+        "gana_grado_pct": 25.810087348548887,
+        "gana_node2vec_suma_idf_pct": 72.07664130741054
+      },
+      "6-9": {
+        "definiciones": 3458,
+        "p@5_grado": 0.0841526894158473,
+        "p@5_node2vec_suma_idf": 0.18189705031810294,
+        "mrr_grado": 0.05843781079197997,
+        "mrr_node2vec_suma_idf": 0.1289241353692321,
+        "gana_grado_pct": 27.41469057258531,
+        "gana_node2vec_suma_idf_pct": 70.73452862926547
+      },
+      "10+": {
+        "definiciones": 1240,
+        "p@5_grado": 0.11129032258064517,
+        "p@5_node2vec_suma_idf": 0.24435483870967742,
+        "mrr_grado": 0.08576553192748444,
+        "mrr_node2vec_suma_idf": 0.1724680705859828,
+        "gana_grado_pct": 28.62903225806452,
+        "gana_node2vec_suma_idf_pct": 67.74193548387096
+      }
+    }
+  }
+}
